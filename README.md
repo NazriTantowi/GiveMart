@@ -1,9 +1,4 @@
-<<<<<<< Updated upstream
 # GiveMart
-=======
-# test
->>>>>>> Stashed changes
-
 A new Flutter project.
 
 ## Getting Started

@@ -1,5 +1,7 @@
-name: pplcoba
-description: A new Flutter project.
+name: myapp
+description: A exported flutter project from FUNCTION12
+
+
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -19,7 +21,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.3 <4.0.0'
+  sdk: '>=2.18.2 <3.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -35,6 +37,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  google_fonts: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +65,116 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/page-1/images/icon-eye-close.png
+    - assets/page-1/images/ic-baseline-search.png
+    - assets/page-1/images/auto-group-hpv7.png
+    - assets/page-1/images/vector.png
+    - assets/page-1/images/logos-google-icon.png
+    - assets/page-1/images/vector-ZHp.png
+    - assets/page-1/images/vector-ur6.png
+    - assets/page-1/images/givemart-website-favicon-color-2.png
+    - assets/page-1/images/vector-NWa.png
+    - assets/page-1/images/mdi-account.png
+    - assets/page-1/images/icon-lock.png
+    - assets/page-1/images/vector-nBY.png
+    - assets/page-1/images/icon-lock-D3t.png
+    - assets/page-1/images/auto-group-neb5.png
+    - assets/page-1/images/givemart-website-favicon-color-2-fK4.png
+    - assets/page-1/images/auto-group-3nnx.png
+    - assets/page-1/images/fa-solid-edit.png
+    - assets/page-1/images/clarity-notification-solid.png
+    - assets/page-1/images/givemart-website-favicon-color-2-y1x.png
+    - assets/page-1/images/givemart-website-favicon-color-2-vbQ.png
+    - assets/page-1/images/image-4.png
+    - assets/page-1/images/auto-group-lzuf.png
+    - assets/page-1/images/icon-eye-close-JYe.png
+    - assets/page-1/images/logos-google-icon-gNa.png
+    - assets/page-1/images/ic-twotone-menu.png
+    - assets/page-1/images/clarity-notification-solid-kVU.png
+    - assets/page-1/images/auto-group-k3ak.png
+    - assets/page-1/images/clarity-notification-solid-mKt.png
+    - assets/page-1/images/group-1095.png
+    - assets/page-1/images/vector-ch4.png
+    - assets/page-1/images/group-415.png
+    - assets/page-1/images/group-1103.png
+    - assets/page-1/images/clarity-notification-solid-GbY.png
+    - assets/page-1/images/clarity-notification-solid-4Bg.png
+    - assets/page-1/images/vector-478.png
+    - assets/page-1/images/ellipse-bg.png
+    - assets/page-1/images/ic-twotone-menu-rd4.png
+    - assets/page-1/images/vector-Cgv.png
+    - assets/page-1/images/ic-twotone-menu-BCi.png
+    - assets/page-1/images/screenshot347-removebg-preview-1-1.png
+    - assets/page-1/images/ic-twotone-menu-JcW.png
+    - assets/page-1/images/icon-bank.png
+    - assets/page-1/images/icon-nav-arrow-right.png
+    - assets/page-1/images/ic-twotone-menu-6d4.png
+    - assets/page-1/images/icon-graph-up.png
+    - assets/page-1/images/icon-menu.png
+    - assets/page-1/images/icon-user.png
+    - assets/page-1/images/vector-6DL.png
+    - assets/page-1/images/image-1.png
+    - assets/page-1/images/vector-Qzi.png
+    - assets/page-1/images/givemart-website-favicon-color-2-Zta.png
+    - assets/page-1/images/mdi-account-JrA.png
+    - assets/page-1/images/icon-nav-arrow-right-44e.png
+    - assets/page-1/images/icon-list.png
+    - assets/page-1/images/icon-apple-imac-2021.png
+    - assets/page-1/images/icon-share-ios.png
+    - assets/page-1/images/vector-HtS.png
+    - assets/page-1/images/ellipse-bg-L62.png
+    - assets/page-1/images/vector-tNS.png
+    - assets/page-1/images/ellipse-bg-TAe.png
+    - assets/page-1/images/icon-google-docs.png
+    - assets/page-1/images/icon-nav-arrow-right-7Zg.png
+    - assets/page-1/images/icon-google-docs-MCS.png
+    - assets/page-1/images/icon-bank-UjY.png
+    - assets/page-1/images/ic-twotone-menu-gpE.png
+    - assets/page-1/images/vector-Jxe.png
+    - assets/page-1/images/icon-lock-DEN.png
+    - assets/page-1/images/icon-nav-arrow-right-yNv.png
+    - assets/page-1/images/icon-cart.png
+    - assets/page-1/images/icon-nav-arrow-right-dq8.png
+    - assets/page-1/images/ic-baseline-search-of4.png
+    - assets/page-1/images/vector-1qY.png
+    - assets/page-1/images/vector-ssU.png
+    - assets/page-1/images/icon-tools.png
+    - assets/page-1/images/icon-apple-imac-2021-KZg.png
+    - assets/page-1/images/icon-money-square.png
+    - assets/page-1/images/icon-cancel.png
+    - assets/page-1/images/icon-notification.png
+    - assets/page-1/images/vector-asx.png
+    - assets/page-1/images/icon-bell-notification.png
+    - assets/page-1/images/icon-home.png
+    - assets/page-1/images/icon-nav-arrow-right-8y4.png
+    - assets/page-1/images/vector-z2i.png
+    - assets/page-1/images/icon-page-edit.png
+    - assets/page-1/images/vector-pnr.png
+    - assets/page-1/images/icon-nav-arrow-right-fRx.png
+    - assets/page-1/images/icon-user-r2S.png
+    - assets/page-1/images/icon-nav-arrow-down.png
+    - assets/page-1/images/icon-notification-qU2.png
+    - assets/page-1/images/icon-page-edit-5Ae.png
+    - assets/page-1/images/vector-sMQ.png
+    - assets/page-1/images/icon-menu-awx.png
+    - assets/page-1/images/givemart-website-favicon-color-2-z22.png
+    - assets/page-1/images/dashicons-update-alt.png
+    - assets/page-1/images/icon-user-DhG.png
+    - assets/page-1/images/ic-baseline-search-Jii.png
+    - assets/page-1/images/icon-box-iso.png
+    - assets/page-1/images/vector-a14.png
+    - assets/page-1/images/group-415-prz.png
+    - assets/page-1/images/icon-nav-arrow-right-2dc.png
+    - assets/page-1/images/givemart-website-favicon-color-2-4yL.png
+    - assets/page-1/images/icon-bell-notification-9E6.png
+    - assets/page-1/images/icon-box-iso-Pkz.png
+    - assets/page-1/images/icon-tools-Y86.png
+    - assets/page-1/images/vector-vPG.png
+    - assets/page-1/images/vector-aei.png
+    - assets/page-1/images/icon-nav-arrow-down-f2N.png
+    - assets/page-1/images/icon-share-ios-Qia.png
+    - assets/page-1/images/auto-group-udgf.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

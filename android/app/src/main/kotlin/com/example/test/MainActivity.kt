@@ -1,4 +1,4 @@
-package com.example.pplcoba
+package com.example.test
 
 import io.flutter.embedding.android.FlutterActivity
 

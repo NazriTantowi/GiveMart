@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pplcoba/pages/registpage.dart';
+import 'package:myapp/pages/homepage.dart';
+import 'package:myapp/pages/loginpage.dart';
+import 'package:myapp/pages/registpage.dart';
+import 'package:myapp/pages/welcomepage.dart';
+//import 'package:flutter/gestures.dart';
+//import 'package:pplcoba/pages/welcomepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +19,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/':(context) => RegistPage()
+        '/':(context) => const WelcomePage(),
+        '/registpage':(context) => const RegistPage(),
+        '/loginpage':(context) => const LoginPage(),
+        '/homepage':(context) => const HomePage(),
       }
     );
   }

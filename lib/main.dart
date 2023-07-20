@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/homepage.dart';
+import 'package:myapp/pages/inputbarang.dart';
 import 'package:myapp/pages/loginpage.dart';
 import 'package:myapp/pages/registpage.dart';
-import 'package:myapp/pages/welcomepage.dart';
+//import 'package:myapp/pages/welcomepage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -22,10 +23,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/':(context) => const WelcomePage(),
+        '/':(context) => const InputBarang(),
         '/registpage':(context) => const RegistPage(),
         '/loginpage':(context) => const LoginPage(),
         '/homepage':(context) => const HomePage(),
+        //'/inputbarang':(context) => const InputBarang(),
       }
     );
   }

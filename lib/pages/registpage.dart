@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/utils.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class RegistPage extends StatefulWidget {
   const RegistPage({super.key});
@@ -433,6 +435,7 @@ class _RegisterPageState extends State<RegistPage> {
                                           height: 14 * fem,
                                           child: TextField(
                                             controller: _passwordController,
+                                            obscureText: true,
                                             decoration: const InputDecoration(
                                                 border: InputBorder.none,
                                                 hintText: "**********",
@@ -548,6 +551,7 @@ class _RegisterPageState extends State<RegistPage> {
                                             height: 14 * fem,
                                             child: TextField(
                                               controller: _confirmPasswordController,
+                                              obscureText: true,
                                               decoration: const InputDecoration(
                                                   border: InputBorder.none,
                                                   hintText: "**********",

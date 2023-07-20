@@ -1,10 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
+
+  void _loginUser() async {
+    String email = _emailController.text;
+    String password = _passwordController.text;
+
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      if (userCredential.user != null) {
+        // User successfully logged in
+        print('User logged in: ${userCredential.user!.email}');
+      }
+    } catch (e) {
+      // Handle login errors here
+      print('Error: $e');
+      _showErrorDialog('Login Gagal','email atau password salah');
+    }
+  }
+  void _showErrorDialog(String title, String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          content: Text(message),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -265,8 +314,9 @@ class LoginPage extends StatelessWidget {
                                         child: SizedBox(
                                           width: 111 * fem,
                                           height: 14 * fem,
-                                          child: const TextField(
-                                            decoration: InputDecoration(
+                                          child: TextField(
+                                            controller: _emailController,
+                                            decoration: const InputDecoration(
                                                 border: InputBorder.none,
                                                 hintText: "example@gmail.com",
                                                 hintStyle: TextStyle(
@@ -275,7 +325,7 @@ class LoginPage extends StatelessWidget {
                                                   fontFamily: 'Inter',
                                                   fontWeight: FontWeight.w600,
                                                 )),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               color: Color(0xFF6C757D),
                                               fontSize: 11,
                                               fontFamily: 'Inter',
@@ -375,17 +425,19 @@ class LoginPage extends StatelessWidget {
                                       SizedBox(
                                         width: 111 * fem,
                                         height: 14 * fem,
-                                        child: const TextField(
-                                          decoration: InputDecoration(
+                                        child: TextField(
+                                          controller: _passwordController,
+                                          obscureText: true,
+                                          decoration: const InputDecoration(
                                               border: InputBorder.none,
-                                              hintText: "********",
+                                              hintText: "*********",
                                               hintStyle: TextStyle(
                                                 color: Color(0xFF6C757D),
                                                 fontSize: 11,
                                                 fontFamily: 'Inter',
                                                 fontWeight: FontWeight.w600,
                                               )),
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             color: Color(0xFF6C757D),
                                             fontSize: 11,
                                             fontFamily: 'Inter',
@@ -444,6 +496,7 @@ class LoginPage extends StatelessWidget {
                     child: Center(
                       child: ElevatedButton(
                         onPressed: () {
+                          _loginUser();
                           Navigator.pushNamed(context, '/homepage');
                         },
                         style: ElevatedButton.styleFrom(

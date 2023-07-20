@@ -1,8 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/utils.dart';
 
-class RegistPage extends StatelessWidget {
+class RegistPage extends StatefulWidget {
   const RegistPage({super.key});
+
+  @override
+  _RegisterPageState createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegistPage> {
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _confirmPasswordController = TextEditingController();
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  Future<void> _registerUser() async {
+    try {
+      String name = _nameController.text;
+      String email = _emailController.text;
+      String password = _passwordController.text;
+      String confirmPassword = _confirmPasswordController.text;
+
+      if (password == confirmPassword) {
+        UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+
+        // Menyimpan data user ke Firestore
+        await _firestore.collection('users').doc(userCredential.user!.uid).set({
+          'name': name,
+          'email': email,
+        });
+
+        print('Registrasi berhasil: $name, $email, $password');
+      } else {
+        print('Password tidak cocok');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -175,11 +216,12 @@ class RegistPage extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    const SizedBox(
+                                     SizedBox(
                                       width: 71,
                                       height: 16,
                                       child: TextField(
-                                        decoration: InputDecoration(
+                                        controller: _nameController,
+                                        decoration: const InputDecoration(
                                             border: InputBorder.none,
                                             hintText: "XXXXXXXX",
                                             hintStyle: TextStyle(
@@ -188,7 +230,7 @@ class RegistPage extends StatelessWidget {
                                               fontFamily: 'Inter',
                                               fontWeight: FontWeight.w600,
                                             )),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: Color(0xFF6C757D),
                                           fontSize: 11,
                                           fontFamily: 'Inter',
@@ -275,8 +317,9 @@ class RegistPage extends StatelessWidget {
                                         child: SizedBox(
                                           width: 111 * fem,
                                           height: 14 * fem,
-                                          child: const TextField(
-                                            decoration: InputDecoration(
+                                          child: TextField(
+                                            controller: _emailController,
+                                            decoration: const InputDecoration(
                                                 border: InputBorder.none,
                                                 hintText: "example@gmail.com",
                                                 hintStyle: TextStyle(
@@ -285,7 +328,7 @@ class RegistPage extends StatelessWidget {
                                                   fontFamily: 'Inter',
                                                   fontWeight: FontWeight.w600,
                                                 )),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               color: Color(0xFF6C757D),
                                               fontSize: 11,
                                               fontFamily: 'Inter',
@@ -388,8 +431,9 @@ class RegistPage extends StatelessWidget {
                                         child: SizedBox(
                                           width: 111 * fem,
                                           height: 14 * fem,
-                                          child: const TextField(
-                                            decoration: InputDecoration(
+                                          child: TextField(
+                                            controller: _passwordController,
+                                            decoration: const InputDecoration(
                                                 border: InputBorder.none,
                                                 hintText: "**********",
                                                 hintStyle: TextStyle(
@@ -398,7 +442,7 @@ class RegistPage extends StatelessWidget {
                                                   fontFamily: 'Inter',
                                                   fontWeight: FontWeight.w600,
                                                 )),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               color: Color(0xFF6C757D),
                                               fontSize: 11,
                                               fontFamily: 'Inter',
@@ -475,7 +519,7 @@ class RegistPage extends StatelessWidget {
                                 margin: EdgeInsets.fromLTRB(
                                     0 * fem, 0 * fem, 0 * fem, 1 * fem),
                                 child: Text(
-                                  'No. Handphone',
+                                  'Confirm Password',
                                   style: SafeGoogleFont(
                                     'Inter',
                                     fontSize: 8 * ffem,
@@ -502,17 +546,18 @@ class RegistPage extends StatelessWidget {
                                           child: SizedBox(
                                             width: 111 * fem,
                                             height: 14 * fem,
-                                            child: const TextField(
-                                              decoration: InputDecoration(
+                                            child: TextField(
+                                              controller: _confirmPasswordController,
+                                              decoration: const InputDecoration(
                                                   border: InputBorder.none,
-                                                  hintText: "089912345678",
+                                                  hintText: "**********",
                                                   hintStyle: TextStyle(
                                                     color: Color(0xFF6C757D),
                                                     fontSize: 11,
                                                     fontFamily: 'Inter',
                                                     fontWeight: FontWeight.w600,
                                                   )),
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 color: Color(0xFF6C757D),
                                                 fontSize: 11,
                                                 fontFamily: 'Inter',
@@ -634,6 +679,7 @@ class RegistPage extends StatelessWidget {
                     child: Center(
                       child: ElevatedButton(
                         onPressed: () {
+                          _registerUser();
                           Navigator.pushNamed(context, '/loginpage');
                         },
                         style: ElevatedButton.styleFrom(

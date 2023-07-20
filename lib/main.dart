@@ -3,10 +3,13 @@ import 'package:myapp/pages/homepage.dart';
 import 'package:myapp/pages/loginpage.dart';
 import 'package:myapp/pages/registpage.dart';
 import 'package:myapp/pages/welcomepage.dart';
-//import 'package:flutter/gestures.dart';
-//import 'package:pplcoba/pages/welcomepage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async{
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "250697797463",
+    "project_id": "givemart-f4ecb",
+    "storage_bucket": "givemart-f4ecb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250697797463:android:71158e21d2abc728fef812",
+        "android_client_info": {
+          "package_name": "com.example.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "250697797463-3gkmj47oe57n3elgb0mb16p1k1puc14t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFAXG_0FrpPh7zv3oY2DtvPe4vXaO0Qjw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "250697797463-3gkmj47oe57n3elgb0mb16p1k1puc14t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "250697797463-epu2ourv03puijg9ptmn00hs5bmi9d5h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.test"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

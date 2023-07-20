@@ -1,3 +1,5 @@
+import 'dart:io';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
@@ -66,9 +68,16 @@ class _InputBarangPageState extends State<InputBarang> {
     final pickedImage = await picker.pickImage(source: ImageSource.gallery);
 
     if (pickedImage != null) {
-      // Update the _gambarUrl with the selected image's URL
+      // Upload image to Firebase Storage
+      Reference ref = FirebaseStorage.instance.ref().child('images').child(DateTime.now().toString());
+      UploadTask uploadTask = ref.putFile(File(pickedImage.path));
+
+      // Get the download URL after the upload is complete
+      String downloadUrl = await (await uploadTask).ref.getDownloadURL();
+
+      // Update the _gambarUrl with the download URL
       setState(() {
-        _gambarUrl = pickedImage.path;
+        _gambarUrl = downloadUrl;
       });
     }
   }
@@ -83,7 +92,7 @@ class _InputBarangPageState extends State<InputBarang> {
       'nama': namaBarang,
       'deskripsi': deskripsi,
       'harga': harga,
-      'gambar': _gambarUrl, // Ganti _gambarUrl dengan URL gambar yang telah diunggah
+      'gambar': _gambarUrl, // Simpan URL gambar yang telah diunggah ke Firestore
     }).then((_) {
       // Berhasil menyimpan
       print('Data barang berhasil disimpan ke Firebase.');

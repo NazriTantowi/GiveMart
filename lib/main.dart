@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         '/registpage':(context) => const RegistPage(),
         '/loginpage':(context) => const LoginPage(),
         '/homepage':(context) => const HomePage(),
-        //'/inputbarang':(context) => const InputBarang(),
+        '/inputbarang':(context) => const InputBarang(),
       }
     );
   }

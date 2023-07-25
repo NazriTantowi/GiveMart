@@ -13,9 +13,50 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
-            onPressed: () {},
+            onPressed: () {
+            },
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            const UserAccountsDrawerHeader(
+              accountName: Text('Username'),
+              accountEmail: Text('email@example.com'),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.grey,
+                backgroundImage:
+                NetworkImage('https://example.com/profile.jpg'),
+              ),
+              decoration: BoxDecoration(
+                color: Color(0xff44f1a6),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Profile'),
+              onTap: () {
+                Navigator.pushNamed(context, '/profilepage');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.upload),
+              title: const Text('Donate Goods'),
+              onTap: () {
+                Navigator.pushNamed(context, '/inputbarang');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            // Add more drawer items as needed.
+          ],
+        ),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('barang').snapshots(),

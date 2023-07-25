@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/pages/homepage.dart';
 import 'package:myapp/pages/inputbarang.dart';
 import 'package:myapp/pages/loginpage.dart';
+import 'package:myapp/pages/profilepage.dart';
 import 'package:myapp/pages/registpage.dart';
 //import 'package:myapp/pages/welcomepage.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         '/loginpage':(context) => const LoginPage(),
         '/homepage':(context) => const HomePage(),
         '/inputbarang':(context) => const InputBarang(),
+        '/profilepage':(context) => const ProfilePage(),
       }
     );
   }

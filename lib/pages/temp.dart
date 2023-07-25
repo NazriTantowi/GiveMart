@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -25,6 +26,46 @@ class HomePage extends StatelessWidget {
               const SizedBox(
                 width: double.infinity,
                 height: 25,
+              ),
+              drawer: Drawer(
+                child: ListView(
+                  children: [
+                    const UserAccountsDrawerHeader(
+                      accountName: Text('Username'),
+                      accountEmail: Text('email@example.com'),
+                      currentAccountPicture: CircleAvatar(
+                        backgroundColor: Colors.grey,
+                        backgroundImage:
+                        NetworkImage('https://example.com/profile.jpg'),
+                      ),
+                      decoration: BoxDecoration(
+                        color: Color(0xff44f1a6),
+                      ),
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.person),
+                      title: const Text('Profile'),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/profilepage');
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.upload),
+                      title: const Text('Donate Goods'),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/inputbarang');
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.settings),
+                      title: const Text('Settings'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    // Add more drawer items as needed.
+                  ],
+                ),
               ),
               Container(
                 width: double.infinity,
